@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TimetricsSingleTimer">
+    <Style TargetType="Button" x:Key="FlatButton">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Name="RootElement" Background="{StaticResource BackgroundDisabledBrush}">
+                        <!-- <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonState"/>
+                            <VisualStateGroup Name="Normal"/>
+                            
+                            <VisualStateGroup Name="MouseOver">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="BackgroundBrush"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource A}"/>
+                                </Storyboard>
+                            </VisualStateGroup>
+                            
+                        </VisualStateManager.VisualStateGroups>
+                        -->
+                        <!-- Begin Normal Definition -->
+                        <TextBlock Foreground="{StaticResource TextDarkBrush}" Margin="4" FontWeight="Bold">
+                            <ContentPresenter/>
+                        </TextBlock>
+                        <Grid.BitmapEffect>
+                            <DropShadowBitmapEffect Color="{StaticResource AlertLowDisabledColor}" Direction="315" ShadowDepth="2" Softness=".2"/>
+                        </Grid.BitmapEffect>
+                    </Grid>                   
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        </Style>
+</ResourceDictionary>

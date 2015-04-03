@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TimetricsDataClasses">
+  <DataContextMoniker Name="/TimetricsDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4b4f0ebd-aba4-4dbf-b0b1-f1285c5b7bfb" absoluteBounds="0.5, 4.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TimetricsDataClassesDataContext/TimerProject" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ddf8a0b5-2c31-4c17-b163-bf49fad3cc52" absoluteBounds="0.51499999999999968, 4.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57d92e77-90ce-45d7-abea-1c366d712578" absoluteBounds="2.75, 4.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TimetricsDataClassesDataContext/Workflow" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30aaf9ad-89db-4bf8-a78c-30aa1506ce32" absoluteBounds="2.7649999999999997, 4.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 5.06814697265625); (2.75 : 5.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TimetricsDataClassesDataContext/TimerProject/TimerProject_Workflow" />
+      <nodes>
+        <classShapeMoniker Id="4b4f0ebd-aba4-4dbf-b0b1-f1285c5b7bfb" />
+        <classShapeMoniker Id="57d92e77-90ce-45d7-abea-1c366d712578" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="13432db2-c05a-46ea-80da-f8011c0502f4" absoluteBounds="0.5, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TimetricsDataClassesDataContext/WorkflowTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b172ecc-2110-4200-b78e-b45ce5e5a1fa" absoluteBounds="0.51500000000000012, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="afe6acd0-1cba-473e-b822-fa40a251efbf" absoluteBounds="3, 0.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/TimetricsDataClassesDataContext/WorkflowTemplateToTimerTaskTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="125ad21b-8855-470b-8e0b-f3dcb8cc0a08" absoluteBounds="3.015, 1.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.56814697265625); (3 : 1.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TimetricsDataClassesDataContext/WorkflowTemplate/WorkflowTemplate_WorkflowTemplateToTimerTaskTemplate" />
+      <nodes>
+        <classShapeMoniker Id="13432db2-c05a-46ea-80da-f8011c0502f4" />
+        <classShapeMoniker Id="afe6acd0-1cba-473e-b822-fa40a251efbf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5c391b5e-42f7-4eb5-964b-968923eb9b18" absoluteBounds="5.5, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TimetricsDataClassesDataContext/TimerTaskTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c9ec016-6aa6-4212-881c-6c2d36257d6f" absoluteBounds="5.515, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.56814697265625); (5 : 1.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TimetricsDataClassesDataContext/TimerTaskTemplate/TimerTaskTemplate_WorkflowTemplateToTimerTaskTemplate" />
+      <nodes>
+        <classShapeMoniker Id="5c391b5e-42f7-4eb5-964b-968923eb9b18" />
+        <classShapeMoniker Id="afe6acd0-1cba-473e-b822-fa40a251efbf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="937656a7-370f-4018-a772-9b910fca88c0" absoluteBounds="5.125, 3.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/TimetricsDataClassesDataContext/TimerTask" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7893b8fa-3afb-4fba-8432-d66fcdb30f08" absoluteBounds="5.14, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.75 : 5.03929768880208); (5.125 : 5.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TimetricsDataClassesDataContext/Workflow/Workflow_TimerTask" />
+      <nodes>
+        <classShapeMoniker Id="57d92e77-90ce-45d7-abea-1c366d712578" />
+        <classShapeMoniker Id="937656a7-370f-4018-a772-9b910fca88c0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

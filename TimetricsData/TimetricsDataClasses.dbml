@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TIMETRICS_DEV" Class="TimetricsDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ORMEDHQ2-TECH6\MJSQLEXPRESS;Initial Catalog=TIMETRICS_DEV;Integrated Security=True" SettingsObjectName="TimetricsData.Properties.Settings" SettingsPropertyName="TIMETRICS_DEVConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TimerProject" Member="TimerProjects">
+    <Type Name="TimerProject">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="TimerProject_Workflow" Member="Workflows" ThisKey="Id" OtherKey="ProjectId" Type="Workflow" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Workflow" Member="Workflows">
+    <Type Name="Workflow">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ProjectId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Workflow_TimerTask" Member="TimerTasks" ThisKey="Id" OtherKey="WorkflowId" Type="TimerTask" />
+      <Association Name="TimerProject_Workflow" Member="TimerProject" ThisKey="ProjectId" OtherKey="Id" Type="TimerProject" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkflowTemplate" Member="WorkflowTemplates">
+    <Type Name="WorkflowTemplate">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="WorkflowTemplate_WorkflowTemplateToTimerTaskTemplate" Member="WorkflowTemplateToTimerTaskTemplates" ThisKey="Id" OtherKey="WorkflowTemplateId" Type="WorkflowTemplateToTimerTaskTemplate" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkflowTemplateToTimerTaskTemplate" Member="WorkflowTemplateToTimerTaskTemplates">
+    <Type Name="WorkflowTemplateToTimerTaskTemplate">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkflowTemplateId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TimerTaskTemplateId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TaskOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Notes" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="WorkflowTemplate_WorkflowTemplateToTimerTaskTemplate" Member="WorkflowTemplate" ThisKey="WorkflowTemplateId" OtherKey="Id" Type="WorkflowTemplate" IsForeignKey="true" />
+      <Association Name="TimerTaskTemplate_WorkflowTemplateToTimerTaskTemplate" Member="TimerTaskTemplate" ThisKey="TimerTaskTemplateId" OtherKey="Id" Type="TimerTaskTemplate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TimerTaskTemplate" Member="TimerTaskTemplates">
+    <Type Name="TimerTaskTemplate">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="TimerTaskTemplate_WorkflowTemplateToTimerTaskTemplate" Member="WorkflowTemplateToTimerTaskTemplates" ThisKey="Id" OtherKey="TimerTaskTemplateId" Type="WorkflowTemplateToTimerTaskTemplate" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TimerTask" Member="TimerTasks">
+    <Type Name="TimerTask">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Postmortem" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TaskOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkflowId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Workflow_TimerTask" Member="Workflow" ThisKey="WorkflowId" OtherKey="Id" Type="Workflow" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
